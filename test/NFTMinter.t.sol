@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.17;
 
-import {Test} from "forge-std/Test.sol";
+import { Test } from "forge-std/Test.sol";
 import "../src/NFTMinter.sol";
-import {IERC721Receiver} from "@openzeppelin/contracts/interfaces/IERC721Receiver.sol";
+import { IERC721Receiver } from "@openzeppelin/contracts/interfaces/IERC721Receiver.sol";
 
 contract NFTMintersTest is Test/*, IERC721Receiver*/ {
     NFTMinter nftmin;
@@ -13,9 +13,15 @@ contract NFTMintersTest is Test/*, IERC721Receiver*/ {
     // uint8 exploitCount;
     // uint8 exploitMaxCount;
 
+    // Ejecutada automáticamente previo a cada test
     function setUp() public {
+        // Se instancia el contrato a testear
         nftmin = new NFTMinter(0.25 ether);
+
+        // Carlos comienza con un balance de 1000 ETH
         vm.deal(carlos, 1000 ether);
+
+        // A partir de ahora, todas las llamadas serán ejecutadas por carlos
         vm.startPrank(carlos);
     }
 

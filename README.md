@@ -2,7 +2,7 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Repositorio del taller "Intro a testing y seguridad de smart contracts con Foundry" dictado el 30 de Marzo del 2023 para [HackIT/BA>](https://hackitba.com/).
+Repositorio del taller "Intro a testing y seguridad de smart contracts con Foundry" dictado el 30 de Marzo del 2023 para [HackIT/BA>](https://hackitba.com/) por miembros de [The Red Guild](https://theredguild.org).
 
 ## Tabla de Contenidos
 
@@ -10,7 +10,8 @@ Repositorio del taller "Intro a testing y seguridad de smart contracts con Found
 - [Recorrido](#recorrido)
 - [Requisitos preliminares](#Requisitos-preliminares)
 - [Preparación](#Preparación)
-- [Uso](#Uso)
+- [Probando el setup](#Probando-el-setup)
+- [Recursos adicionales](#recursos-adicionales)
 - [Aviso importante](#Aviso-importante)
 
 ## Introducción 
@@ -103,6 +104,9 @@ Para saber más sobre el comando `forge test`, podés referirte a [la documentac
 - [Foundry book](book.getfoundry.sh/)
 - [How to Foundry 2.0 by Brock Elmore](https://www.youtube.com/watch?v=EHrvD5c93JU)
 - [Wizard de OpenZeppelin Contracts](https://wizard.openzeppelin.com/)
+- [ERC721: Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721)
+- [Roadmap into Ethereum security](https://mattaereal.notion.site/matta-s-Ethereum-security-road-map-cf7d7f2e48ea4aa0a8f4a2eff86342a7)
+- [Lista de recursos de introducción a seguridad en Ethereum](https://www.notonlyowner.com/learn/intro-seguridad-hacking-ethereum/)
 
 ## Aviso importante
 
