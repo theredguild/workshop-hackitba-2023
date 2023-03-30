@@ -1,30 +1,11 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
-/**
- * @title NFTMinter.
- * @author theredguild.
- * @notice theredguild.org
- * 
- * Objetivo:
- * Desarrollar un contrado llamado `NFTMinter` que permita lo siguiente.
-    - mintear 1 NFT (`mintOne`).
-    - retirar todo el ether depositado (`sweepFunds`)
-    - la posibilidad de comprar más de 1 NFT en bulk/simultáneo
-      (`mintMany(amount)`), con un límite de 10.
-    - la posibilidad de mintear 1 NFT gratis (`mintFree`) dada la condición de
-      que el usuario posea más de 10 puntos (1 mint de NFT == 1 punto).
-    - la posibilidad de mintear 1 NFT gratis dada otra condición (`mintDeluxe`)
-      determinada por la siguiente fórmula:
-      (puntosUsuario / nftsMinteadosTotales * 100 > 20).
-
- */
-
 pragma solidity ^0.8.17;
 
 import "./MiNFT.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 import "forge-std/console.sol";
 
-// errores sugeridos
+// Algunos errores sugeridos
 error InsufficientPayment();
 error NotEnoughPoints();
 error AlreadyClaimed();
@@ -32,9 +13,18 @@ error MustMintFirst();
 error AboveMintLimit();
 error MustMintOneAtLeast();
 
+/**
+ * @title NFTMinter.
+ * @author The Red Guild (theredguild.org)
+ * @dev Un contrato llamado `NFTMinter` que permita:
+    - Mintear 1 NFT (función `mintOne()`).
+    - Retirar todo el ETH depositado (función `sweepFunds()`)
+    - Comprar más de 1 NFT en bulk/simultáneo, con un límite de 10 (función `mintMany(uint256)`)
+    - Mintear 1 NFT gratis cuando el usuario posea más de 10 puntos, donde 1 mint de NFT == 1 punto (función `mintFree()`) 
+    - Mintear 1 NFT gratis dada otra condición determinada por la fórmula
+      `puntosUsuario / nftsMinteadosTotales * 100 > 20` (función `mintDeluxe()`)
+ */
 contract NFTMinter {
-    // event ClaimedFree(address owner, uint256 tokenId, uint256 points);
-
     using Address for address payable;
 
     uint256 public immutable PRICE_TO_PAY;
@@ -47,16 +37,18 @@ contract NFTMinter {
     MiNFT public nft;
     // address public owner;
 
-    /**
-     * Constructor. Inicializa dos constantes
-     * @param _price Precio base de 1 NFT
-     * param _prize Cantidad mínima de NFTs necesarias para reclamar premio.
-     */
-    constructor(uint256 _price /*, uint8 _prize*/) {
-        nft = new MiNFT();
-        PRICE_TO_PAY = _price;
+    // event ClaimedFree(address owner, uint256 tokenId, uint256 points);
 
-        // PRIZE_THRESHOLD = _prize;
+    /**
+     * Constructor del contrato. Inicializa algunas constantes importantes para operar.
+     * @param _priceToPay Precio base de 1 NFT
+     * param _prizeThreshold Cantidad mínima de NFTs necesarias para reclamar premio.
+     */
+    constructor(uint256 _priceToPay /*, uint8 _prizeThreshold*/) {
+        nft = new MiNFT();
+        PRICE_TO_PAY = _priceToPay;
+
+        // PRIZE_THRESHOLD = _prizeThreshold;
         // MINT_LIMIT = 10;
         // owner = msg.sender;
     }
