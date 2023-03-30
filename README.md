@@ -78,14 +78,14 @@ cast --version
 
 4. Clonar este repositorio a tu ambiente de desarrollo
 ```bash
-git clone https://github.com/theredguild/workshop-hackitba.git
+git clone https://github.com/theredguild/workshop-hackitba-2023.git ws-hackitba
 ```
 
 ## Probando el setup
 
 Asegurarse de estar en el directorio del proyecto
 ```bash
-cd workshop-hacktiba
+cd ws-hackitba
 ```
 
 Podés ejecutar los tests con el comando:
